@@ -5,7 +5,7 @@ import SkillsSection from './components/sections/SkillsSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import TestimonialsSection from './components/sections/TestimonialsSection';
 import SocialSection from './components/sections/SocialSection';
-import LifeUpdateSection from './components/sections/LifeUpdateSection';
+import LifeUpdateSection from './components/sections/CertificationsSection';
 import ContactSection from './components/sections/ContactSection';
 import Footer from './components/Footer';
 

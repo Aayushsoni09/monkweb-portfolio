@@ -1,5 +1,23 @@
+
+
 import React, { useState, useEffect } from 'react';
-import Divider from './ui/Divider';
+
+// Custom CSS for refined, slow animation
+const customStyles = `
+@keyframes slowPulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    opacity: 0.45;
+  }
+}
+.animate-slow-pulse {
+    animation: slowPulse 18s infinite ease-in-out;
+}
+`;
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -101,12 +119,36 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-white text-neutral-900 hero-section-with-magic shadow-lg">
-      <Container className="relative pt-24 pb-16 sm:pt-32 sm:pb-20">
+    // Removed bg-white and added bg-gray-50 for subtle off-white background
+    <section className="relative overflow-hidden bg-gray-50 text-neutral-900 hero-section-with-magic shadow-lg min-h-[60vh]">
+      
+      {/* --- Animated Gradient Blobs (Re-added Creative Background) --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+        {/* Blob 1: Pink/Purple - Top Left */}
+        <div 
+          className="absolute top-0 -left-64 w-96 h-96 bg-pink-300 rounded-full blur-3xl opacity-50 animate-slow-pulse" 
+          style={{ animationDuration: '18s' }}
+        ></div>
+        {/* Blob 2: Blue - Bottom Right (larger for diagonal flow) */}
+        <div 
+          className="absolute bottom-0 -right-64 w-[40rem] h-[40rem] bg-blue-300 rounded-full blur-3xl opacity-40 animate-slow-pulse" 
+          style={{ animationDuration: '22s', animationDelay: '-5s' }}
+        ></div>
+        {/* Blob 3: Purple - Center (subtle secondary glow) */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-purple-300 rounded-full blur-3xl opacity-30 animate-slow-pulse" 
+          style={{ animationDuration: '25s', animationDelay: '-10s' }}
+        ></div>
+      </div>
+      {/* -------------------------------------------------------- */}
+
+      <Container className="relative z-10 pt-24 pb-16 sm:pt-32 sm:pb-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
+            
+            {/* H1 fix retained: pb-10 mb-10 and z-50 for clearance and stacking */}
             <h1
-              className={`text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent transition-all duration-700 ease-out ${
+              className={`text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight pb-10 mb-10 relative z-50 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent transition-all duration-700 ease-out ${
                 animateHero
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
@@ -125,7 +167,7 @@ const Hero = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/Yb2DGuQDcuY"
                 title="Portfolio Video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -160,16 +202,17 @@ const MyStoryAndDifference: React.FC = () => {
           >
             Uncover My Story
           </Button>
-          <Divider className="mt-20" />
+          {/* Replaced <Divider className="mt-20" /> with a styled hr tag */}
+          <hr className="mt-20 border-t border-gray-300" />
         </div>
       </Container>
-      <Modal
+<Modal
         isOpen={isStoryModalOpen}
         onClose={() => setIsStoryModalOpen(false)}
         title="My Story"
       >
-        <div className="space-y-4 text-left">
-          <p className="mb-4">
+        <div className="space-y-6 p-4 md:p-6 lg:p-8 bg-gray-50 rounded-lg text-left text-gray-800 text-lg shadow-inner">
+          <p className="mb-6 leading-relaxed">
             My journey into development began not with basic exercises, but with
             a fervent passion for creating immersive digital experiences. While
             my peers explored foundational concepts, I was already building a{' '}
@@ -180,7 +223,7 @@ const MyStoryAndDifference: React.FC = () => {
             initiative, documented in a compelling video, showcased my drive for
             innovation and mastery of modern web technologies from the outset.
           </p>
-          <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-md mb-6">
+          <div className="aspect-video w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-xl mb-6 border-2 border-gray-200">
             <iframe
               width="100%"
               height="315"
@@ -191,7 +234,7 @@ const MyStoryAndDifference: React.FC = () => {
               className="w-full h-full rounded-lg"
             ></iframe>
           </div>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             My proactive engagement on LinkedIn, sharing my web development
             learnings, quickly led to my{' '}
             <strong>first client engagement</strong>. I partnered with{' '}
@@ -199,23 +242,23 @@ const MyStoryAndDifference: React.FC = () => {
               href="https://www.linkedin.com/in/shash-kapoor/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline font-medium"
+              className="text-blue-700 hover:underline font-medium transition duration-150 ease-in-out"
             >
               Shashank Kapoor
             </a>
             , where I was instrumental in setting up the robust{' '}
             <strong>Django (Python) backend</strong> for his yoga-focused
-            educational platform. This experience solidified my capabilities in
+            educational platform. This early experience solidified my capabilities in
             delivering scalable and functional backend solutions.
           </p>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             My consistent knowledge sharing on LinkedIn attracted my{' '}
             <strong>second significant client</strong>,{' '}
             <a
               href="https://www.linkedin.com/in/navjot-singh-639911a9/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline font-medium"
+              className="text-blue-700 hover:underline font-medium transition duration-150 ease-in-out"
             >
               Navjot Singh
             </a>
@@ -232,13 +275,13 @@ const MyStoryAndDifference: React.FC = () => {
             individuals, significantly expanded my expertise in large-scale
             system development and teamwork.
           </p>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             Through a referral from my brother, I secured a client,{' '}
             <a
               href="https://www.linkedin.com/in/rishimahajan1234/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline font-medium"
+              className="text-blue-700 hover:underline font-medium transition duration-150 ease-in-out"
             >
               Rishi Mahajan{' '}
             </a>
@@ -251,7 +294,7 @@ const MyStoryAndDifference: React.FC = () => {
             implement new technologies on demand. This project's success is also
             captured in a dedicated video.
           </p>
-          <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-md mb-6">
+          <div className="aspect-video w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-xl mb-6 border-2 border-gray-200">
             <iframe
               width="100%"
               height="315"
@@ -262,13 +305,13 @@ const MyStoryAndDifference: React.FC = () => {
               className="w-full h-full rounded-lg"
             ></iframe>
           </div>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             Collaborating with my friend{' '}
             <a
               href="https://www.linkedin.com/in/divyaranjan-parida/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline font-medium"
+              className="text-blue-700 hover:underline font-medium transition duration-150 ease-in-out"
             >
               Divyaranjan Parida
             </a>
@@ -281,7 +324,7 @@ const MyStoryAndDifference: React.FC = () => {
             <strong>over 2,000 views</strong>, reflecting its impact and the
             depth of our work.
           </p>
-          <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-md mb-6">
+          <div className="aspect-video w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-xl mb-6 border-2 border-gray-200">
             <iframe
               width="100%"
               height="315"
@@ -292,7 +335,7 @@ const MyStoryAndDifference: React.FC = () => {
               className="w-full h-full rounded-lg"
             ></iframe>
           </div>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             My professional journey continued with a transformative six-month
             internship at <strong>Kangaroo Software Pvt. Ltd.</strong> Here, I
             gained invaluable hands-on experience in designing and implementing{' '}
@@ -300,7 +343,7 @@ const MyStoryAndDifference: React.FC = () => {
             <strong>backend</strong> infrastructure for their cutting-edge new
             project.
           </p>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             Driven by a commitment to building secure and resilient
             applications, I pursued and successfully obtained a certification in{' '}
             <strong>Web Application Security from IIT Kharagpur</strong>. This
@@ -311,13 +354,13 @@ const MyStoryAndDifference: React.FC = () => {
             scanning and control strategies, ensuring I build with security as a
             foundational principle.
           </p>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             Beyond client work, I founded <strong>'monkweb,'</strong> a personal
             brand dedicated to providing free, high-quality education in
             technology, driven by my belief in empowering others through
             knowledge sharing.
           </p>
-          <p className="mb-4">
+          <p className="mb-6 leading-relaxed">
             Currently, as a <strong>Master's in Computer Applications</strong>,
             I am actively expanding my expertise in{' '}
             <strong>AWS cloud services</strong>, meticulously documenting my
@@ -331,11 +374,13 @@ const MyStoryAndDifference: React.FC = () => {
               title="YouTube Playlist"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-[450px] rounded-lg"
+              // Increased margin on the top for separation
+              className="w-full h-[450px] rounded-lg mt-4 shadow-lg"
             ></iframe>
           </p>
-          <hr />
-          <p>
+          {/* Used a thicker, darker rule for separation */}
+          <hr className="border-t-2 border-gray-300 my-8" />
+          <p className="mb-6 leading-relaxed">
             My diverse experiences across <strong>frontend development</strong>,
             robust <strong>backend systems</strong>, critical{' '}
             <strong>cybersecurity practices</strong>, and scalable{' '}
@@ -344,6 +389,19 @@ const MyStoryAndDifference: React.FC = () => {
             technical environments, my current focus and passion lie in
             leveraging <strong>cloud technologies</strong> to build the next
             generation of innovative solutions.
+          </p>
+          {/* Added more top margin for visual separation of the badge section */}
+          <div className="flex justify-center my-10">
+            {/* Added a subtle ring/border for a premium feel around the badge */}
+            <img
+              src="../../dist/assets/badge.png"
+              alt="AWS Certified Solutions Architect Badge"
+              className="max-w-xs h-auto shadow-2xl rounded-full border-4 border-yellow-400 p-2"
+            />
+          </div>
+          {/* Increased font size, weight, and used a dark text color for a powerful closing statement */}
+          <p className="mb-4 text-xl font-bold text-center text-gray-900 pt-2">
+            I am now officially an <span className="text-orange-600">AWS Certified Solutions Architect</span> after dedicated hard work and am actively seeking challenging full-time or remote opportunities where I can apply my expertise.
           </p>
         </div>
       </Modal>
@@ -356,48 +414,49 @@ const App: React.FC = () => {
     <div className="min-h-screen font-sans-inter">
       <style>
         {`
-              @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+            ${customStyles}
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-              body {
-                  font-family: 'Inter', sans-serif;
-                  background-color: #F8F8F8;
-                  color: #1A1A1A;
-                  line-height: 1.6;
-              }
-              .font-serif-display {
-                  font-family: 'Playfair Display', serif;
-              }
-              .font-sans-inter {
-                  font-family: 'Inter', sans-serif;
-              }
+            body {
+              font-family: 'Inter', sans-serif;
+              background-color: #F8F8F8;
+              color: #1A1A1A;
+              line-height: 1.6;
+            }
+            .font-serif-display {
+              font-family: 'Playfair Display', serif;
+            }
+            .font-sans-inter {
+              font-family: 'Inter', sans-serif;
+            }
 
-              .modal-overlay {
-                  position: fixed;
-                  inset: 0;
-                  background-color: rgba(0, 0, 0, 0.6);
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  z-index: 1000;
-                  opacity: 0;
-                  visibility: hidden;
-                  transition: opacity 0.3s ease, visibility 0.3s ease;
-              }
-              .modal-overlay.open {
-                  opacity: 1;
-                  visibility: visible;
-              }
+            .modal-overlay {
+              position: fixed;
+              inset: 0;
+              background-color: rgba(0, 0, 0, 0.6);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 1000;
+              opacity: 0;
+              visibility: hidden;
+              transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            .modal-overlay.open {
+              opacity: 1;
+              visibility: visible;
+            }
 
-              .modal-content-animated {
-                  transform: scale(0.95);
-                  opacity: 0;
-                  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-              }
-              .modal-overlay.open .modal-content-animated {
-                  transform: scale(1);
-                  opacity: 1;
-              }
-              `}
+            .modal-content-animated {
+              transform: scale(0.95);
+              opacity: 0;
+              transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            }
+            .modal-overlay.open .modal-content-animated {
+              transform: scale(1);
+              opacity: 1;
+            }
+            `}
       </style>
       <Hero />
       <MyStoryAndDifference />
@@ -406,3 +465,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
