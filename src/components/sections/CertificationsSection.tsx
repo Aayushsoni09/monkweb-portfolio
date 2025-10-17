@@ -5,11 +5,11 @@ import Divider from '../ui/Divider';
 import { ExternalLink } from 'lucide-react';
 
 
-const AWS_LOGO_PATH = 's3://monkweb.tech-bucket/amazon_web_services_logo.jpeg'; // Update this path
-const DELOITTE_LOGO_PATH = 's3://monkweb.tech-bucket/deloitte_logo.jpeg';
-const MASTERCARD_LOGO_PATH = 's3://monkweb.tech-bucket/mastercard.jpeg';
-const TATA_LOGO_PATH = 's3://monkweb.tech-bucket/tata_group_logo.jpeg';
-const IITK_LOGO_PATH = 's3://monkweb.tech-bucket/IITK.jpeg'; 
+const AWS_LOGO_PATH = 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/amazon_web_services_logo.jpeg'; // Update this path
+const DELOITTE_LOGO_PATH = 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/deloitte_logo.jpeg';
+const MASTERCARD_LOGO_PATH = 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/mastercard.jpeg';
+const TATA_LOGO_PATH = 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/tata_group_logo.jpeg';
+const IITK_LOGO_PATH = 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/IITK.jpeg'; 
 
 // Certification Data Structure
 const certifications = [
