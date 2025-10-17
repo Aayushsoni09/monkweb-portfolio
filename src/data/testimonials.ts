@@ -38,7 +38,7 @@ export const testimonials: Testimonial[] = [
     name: 'Divyaranjan Parida',
     url: 'https://www.linkedin.com/in/divyaranjan-parida/',
     role: 'FullStack Developer',
-    company: 'Nityo Infotech',
+    company: 'Volkswagen Group',
     quote:
       'He was instrumental in building a complex travel management system, showcasing strong Django and JavaScript skills throughout the project.',
     image: 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/dvd.jpeg',

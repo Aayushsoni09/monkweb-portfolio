@@ -19,7 +19,7 @@ const SkillsSection: React.FC = () => {
   );
 
   return (
-    <Section id="skills" title="Skills">
+    <Section id="skills" title="Skills" >
       <motion.div
         initial="hidden"
         whileInView="visible"

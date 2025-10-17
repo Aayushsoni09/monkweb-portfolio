@@ -50,7 +50,7 @@ const DownloadResumeButton: React.FC = () => {
   const handleDownload = () => {
     // In a real application, replace '/resume.pdf' with the actual path to your resume file.
     // This will open the PDF in a new tab, or prompt a download depending on browser settings.
-    window.open('../../../dist/assets/Aayush_Soni_Resume.pdf', '_blank');
+    window.open('s3://monkweb.tech-bucket/Aayush-Soni-Resume.pdf', '_blank');
   };
 
   return (

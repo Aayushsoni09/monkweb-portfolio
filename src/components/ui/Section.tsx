@@ -25,7 +25,7 @@ const Section: React.FC<SectionProps> = ({
   });
 
   return (
-    <section id={id} className={`py-16 sm:py-20 ${className}`}>
+    <section id={id} className={`py-2 sm:py-5 ${className}`}>
       <Container>
         <motion.div
           ref={ref}

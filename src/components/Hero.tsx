@@ -394,7 +394,7 @@ const MyStoryAndDifference: React.FC = () => {
           <div className="flex justify-center my-10">
             {/* Added a subtle ring/border for a premium feel around the badge */}
             <img
-              src="../../dist/assets/badge.png"
+              src="s3://monkweb.tech-bucket/aws-certified-solutions-architect-associate.png"
               alt="AWS Certified Solutions Architect Badge"
               className="max-w-xs h-auto shadow-2xl rounded-full border-4 border-yellow-400 p-2"
             />
