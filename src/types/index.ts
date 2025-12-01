@@ -19,5 +19,5 @@ export interface Testimonial {
 export interface Skill {
   id: number;
   name: string;
-  category: 'AWS' | 'Webdev' | 'Security' | 'Content Creation';
+  category: 'AWS' | 'Webdev' | 'DevOps' | 'Operating System';
 }
