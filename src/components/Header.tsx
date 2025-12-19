@@ -48,8 +48,6 @@ const Button: React.FC<ButtonProps> = ({
 // Download Resume Button Component
 const DownloadResumeButton: React.FC = () => {
   const handleDownload = () => {
-    // In a real application, replace '/resume.pdf' with the actual path to your resume file.
-    // This will open the PDF in a new tab, or prompt a download depending on browser settings.
     window.open('https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/Aayush-Soni-resume.pdf', '_blank');
   };
 
