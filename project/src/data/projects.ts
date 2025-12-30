@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: 1,
     title: 'Advaitam, A High-Performance E-Commerce Platform (AWS + MERN + CI/CD)',
     description:
-      'A fully custom e-commerce architecture engineered from scratch to replace a slow Wix build — featuring a MERN stack backend, S3 + CloudFront CDN delivery, DynamoDB product storage, OpenSearch real-time search, and automated CI/CD with Docker, ECR, and GitHub Actions. Designed to scale from a small catalog to hundreds of products with sub-second load times.',
+      'A fully custom e-commerce architecture engineered from scratch to replace a slow Wix build — featuring a MERN stack backend, S3 + CloudFront CDN delivery, DynamoDB product storage, OpenSearch real-time search, and automated CI/CD(using OIDC for authentication) with Docker, ECR, and GitHub Actions. Designed to scale from a small catalog to hundreds of products with sub-second load times.',
     image: 'https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/advaitam-aws.png',
     tags: ['Terraform', 'AWS', 'CloudFront', 'OpenSearch', 'DynamoDB', 'Docker', 'Lambda', 'GitHub Actions', 'ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
     link: 'https://github.com/Aayushsoni09/Advaitam',
