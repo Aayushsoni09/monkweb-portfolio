@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
 // Download Resume Button Component
 const DownloadResumeButton: React.FC = () => {
   const handleDownload = () => {
-    window.open('https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/Aayush-Soni-resume.pdf', '_blank');
+    window.open('https://s3.ap-south-1.amazonaws.com/monkweb.tech-bucket/Aayush-Soni-resume+.pdf', '_blank');
   };
 
   return (
